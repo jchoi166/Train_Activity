@@ -23,10 +23,6 @@ $("#add-info-btn").on("click", function(event){
     var firstTrain = moment($("#train-time-input").val().trim(),"hh:mm").format("hh:mm")
     var frequency = $("#train-frequency-input").val().trim()
 
-    // console.log (trainName)
-    // console.log (destination)
-    console.log (firstTrain)
-    // console.log (frequency)
 
     var newTrain = {
         name: trainName,
@@ -38,10 +34,7 @@ $("#add-info-btn").on("click", function(event){
 
     trainList.push(newTrain)
 
-    // console.log(newTrain.name);
-    // console.log(newTrain.trainDestination);
-    // console.log(newTrain.firstLeave);
-    // console.log(newTrain.trainFrequency);
+
 
     alert("Employee successfully added");
 
@@ -52,7 +45,7 @@ $("#add-info-btn").on("click", function(event){
 });
 
 trainList.on("child_added", function(snapshot){
-    // console.log(snapshot.val())
+   
 
     var name = snapshot.val().name
     var trainDestination = snapshot.val().trainDestination
@@ -81,10 +74,7 @@ trainList.on("child_added", function(snapshot){
 
     var nextTrain = moment().add(minutesAway, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
-    // console.log(name)
-    // console.log(trainDestination)
-    // console.log(firstLeave)
-    // console.log(trainFrequency)
+
 
     var newRow = $("<tr>").append(
         $("<td>").text(name),
